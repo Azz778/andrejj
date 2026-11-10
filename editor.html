@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cheat Set — comunidade para aprender, resolver dúvidas e construir projetos.">
+<title>Editor | Cheat Set</title><link rel="stylesheet" href="styles.css">
+</head>
+<body  data-page="editor" class="has-site-bg">
+
+<div class="site-bg" aria-hidden="true">
+  <video class="site-bg-video" autoplay muted loop playsinline poster="https://images.pexels.com/videos/3130284/pexels-photo-3130284.jpeg?auto=compress&cs=tinysrgb&w=1280">
+    <source src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
+  <canvas class="site-bg-canvas" id="codeRain"></canvas>
+  <div class="site-bg-overlay"></div>
+</div>
+
+
+<div class="splash" id="splashScreen" role="dialog" aria-label="Abertura Cheat Set">
+  <div class="splash-inner">
+    <svg class="crest" viewBox="0 0 120 136" role="img" aria-label="Brasão Cheat Set">
+      <defs><linearGradient id="crestGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff2d00"/><stop offset="1" stop-color="#ff8c00"/></linearGradient></defs>
+      <path d="M60 5 108 22 103 77Q94 111 60 130Q26 111 17 77L12 22Z" fill="#111821" stroke="url(#crestGlow)" stroke-width="3"/>
+      <path d="M60 15 98 29 94 75Q86 101 60 117Q34 101 26 75L22 29Z" fill="#151b24" stroke="#ff6328" stroke-opacity=".55"/>
+      <path d="m48 42-15 18 15 18M72 42l15 18-15 18M66 35 54 85" fill="none" stroke="url(#crestGlow)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M38 94h44" stroke="#ff8c00" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <div class="splash-wordmark">Cheat <span>Set</span></div>
+    <div class="splash-subtitle">Code · Share · Build</div>
+    <div class="splash-track"><div class="splash-progress"></div></div>
+  </div>
+  <button class="splash-skip" id="skipSplash">Pular introdução · ESC</button>
+</div>
+<header class="topbar"><div class="container nav">
+<a href="home.html" class="brand" aria-label="Cheat Set início"><span class="brand-mark">CS</span><span class="brand-text">Cheat <span>Set</span></span></a>
+<nav class="menu" aria-label="Menu principal">
+<a data-page="home" href="home.html">Home</a><a data-page="comunidade" href="comunidade.html">Comunidade</a><a data-page="duvidas" href="duvidas.html">Dúvidas</a><a data-page="projetos" href="projetos.html">Projetos</a><a data-page="editor" href="editor.html">Editor</a><a data-page="conta" href="conta.html">Entrar</a><a data-page="contato" href="contato.html">Fale conosco</a>
+</nav><div class="nav-actions"><button class="search-trigger" data-open-search><span>Buscar</span> <kbd>Ctrl+K</kbd></button><button class="button button-primary" data-create-project>+ Criar projeto</button><div class="user-menu" id="userMenu">
+<button type="button" class="user-pill" id="userMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu da conta">AS</button>
+<div class="user-dropdown hidden" id="userDropdown" role="menu">
+  <div class="user-dropdown-head" id="userDropdownHead">Visitante</div>
+  <a role="menuitem" href="conta.html" data-user-action="login">Entrar</a>
+  <a role="menuitem" href="conta.html#register" data-user-action="register">Criar conta</a>
+  <a role="menuitem" href="perfil.html" data-user-action="profile" class="hidden">Meu perfil</a>
+  <a role="menuitem" href="conta.html" data-user-action="account" class="hidden">Minha conta</a>
+  <button type="button" role="menuitem" data-user-action="logout" class="hidden">Sair</button>
+</div>
+</div></div>
+</div></header>
+<main class="container">
+<span class="eyebrow">Espaço de prática</span><h1 class="page-title">Editor de código</h1><p class="page-intro">Escreva e guarde trechos de código para consultar depois. Esta versão é um editor simples: ela não executa o código.</p>
+<div class="editor"><div class="editor-top"><strong>rascunho.js</strong><div class="form-actions"><button class="button button-secondary" id="saveCode">Salvar trecho</button><button class="button button-primary" id="runCode">Testar</button></div></div><textarea id="codeInput" spellcheck="false" aria-label="Editor de código"></textarea><div class="editor-output" id="editorOutput">Saída e avisos aparecerão aqui.</div></div>
+<section class="section"><div class="notice"><strong>Segurança:</strong> a execução de código arbitrário não está habilitada. Executar código de usuários exige um ambiente isolado no servidor ou uma solução de sandbox apropriada. Não execute código desconhecido diretamente no navegador.</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Cheat Set. Feito para quem constrói.</span><span><a href="comunidade.html">Comunidade</a> · <a href="perfil.html">Perfil</a> · <a href="contato.html">Fale conosco</a></span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal hidden" id="searchModal" aria-hidden="true"><div class="modal-panel"><div class="modal-head"><h2>Busca global</h2><button class="close-button" data-close-modal>Fechar ✕</button></div><input class="field" id="globalSearch" type="search" placeholder="Buscar projetos e dúvidas..." aria-label="Pesquisar"><div class="search-results" id="searchResults"><p class="muted">Digite para pesquisar projetos e dúvidas.</p></div></div></div>
+<div class="modal hidden" id="projectModal" aria-hidden="true"><div class="modal-panel"><div class="modal-head"><h2>Novo projeto</h2><button class="close-button" data-close-modal>Fechar ✕</button></div><form id="projectForm" class="form-grid"><label>Nome do projeto<input class="field" name="title" required maxlength="90" placeholder="Ex.: Meu portfólio"></label><label>Descrição<textarea class="textarea" name="description" required maxlength="500" placeholder="O que seu projeto faz?"></textarea></label><label>Linguagem principal<select class="select" name="language" required><option>JavaScript</option><option>TypeScript</option><option>Python</option><option>Java</option><option>C++</option><option>HTML/CSS</option><option>PHP</option><option>Rust</option><option>Go</option></select></label><label>Categoria<select class="select" name="category"><option>Frontend</option><option>Backend</option><option>Full Stack</option><option>Mobile</option><option>Data Science</option><option>Ferramenta</option></select></label><label>Link do repositório<input class="field" name="url" type="url" placeholder="https://github.com/usuario/projeto"></label><div class="notice">Esta versão salva os projetos apenas neste navegador. Para compartilhar entre usuários, será necessário conectar um backend e banco de dados.</div><div class="form-actions"><button class="button button-primary" type="submit">Salvar projeto</button><button class="button button-secondary" type="button" data-close-modal>Cancelar</button></div></form></div></div>
+<div class="modal hidden" id="questionModal" aria-hidden="true"><div class="modal-panel"><div class="modal-head"><h2>Nova dúvida</h2><button class="close-button" data-close-modal>Fechar ✕</button></div><form id="questionForm" class="form-grid"><label>Título da dúvida<input class="field" name="title" required maxlength="120" placeholder="Qual é sua dúvida?"></label><label>Detalhes<textarea class="textarea" name="description" required maxlength="1200" placeholder="Explique o problema e o que você já tentou."></textarea></label><label>Linguagem ou tecnologia<select class="select" name="language"><option>JavaScript</option><option>React</option><option>Python</option><option>Java</option><option>C++</option><option>HTML/CSS</option><option>Node.js</option><option>Outra</option></select></label><div class="notice">A publicação ficará salva localmente neste protótipo, não estará visível para outras pessoas.</div><button class="button button-primary" type="submit">Publicar dúvida</button></form></div></div>
+<script src="script.js"></script></body></html>

@@ -1,0 +1,15 @@
+{
+  "name": "cheat-set",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cheat Set com autenticação de dois fatores por e-mail",
+  "scripts": {"start": "node server.js"},
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "nodemailer": "^6.10.0"
+  }
+}
